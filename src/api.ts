@@ -1,4 +1,4 @@
-const apiData: object = [
+const apiData = [
   {
     i: {
       height: 1500,
