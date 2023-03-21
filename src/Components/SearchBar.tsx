@@ -1,43 +1,50 @@
-import React, { Component } from 'react';
+import React, { ChangeEvent, Component } from 'react';
+import { SearchProps, SearchWordInterface } from 'types/interfaces';
 
-type InputProps = {
-  placeholder: string;
-};
-
-export class SearchBar extends Component<InputProps> {
-  state = {
-    data: '',
-  };
-
-  handleChange = (e: React.FormEvent<HTMLInputElement>) => {
-    this.setState({ data: e.currentTarget.value });
-  };
-
-  componentDidMount() {
-    const storedData = localStorage.getItem('data');
-    if (storedData) {
-      this.setState({ data: storedData });
-    }
+export default class SearchBar extends Component<SearchProps, SearchWordInterface> {
+  constructor(props: SearchProps) {
+    super(props);
+    this.state = { searchWord: '' };
+  }
+  componentDidMount(): void {
+    const storagedInput = localStorage.getItem('storagedInput');
+    this.setState({ searchWord: storagedInput || '' });
   }
 
-  componentWillUnmount() {
-    localStorage.setItem('data', this.state.data);
+  onChangeHandle = (event: ChangeEvent<HTMLInputElement>) => {
+    this.setState({ searchWord: event.target.value });
+  };
+  handleSearch = () => {
+    this.props.callback(this.state.searchWord);
+  };
+  resetSearch = () => {
+    this.setState({ searchWord: '' });
+    this.props.callback('');
+  };
+  componentWillUnmount(): void {
+    const { searchWord } = this.state;
+    localStorage.setItem('storagedInput', searchWord);
   }
 
-  render() {
+  render(): React.ReactNode {
     return (
-      <>
-        <label>
+      <div>
+        <label htmlFor="search__input">
           <input
-            style={{ background: 'white', color: 'black' }}
-            placeholder={this.props.placeholder || 'Search...'}
-            value={this.state.data}
-            onChange={this.handleChange}
             type="text"
+            role="searchbox"
+            id="search__input"
+            placeholder="Search..."
+            value={this.state.searchWord}
+            onChange={this.onChangeHandle}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') this.handleSearch();
+            }}
           />
+          <button aria-label={'searchBtn'} onClick={this.handleSearch} />
         </label>
-        <button> Search</button>
-      </>
+        <button onClick={this.resetSearch}>RESET</button>
+      </div>
     );
   }
 }
