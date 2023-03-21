@@ -1,7 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
 import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import apiData from '../../api';
 
@@ -18,7 +17,7 @@ export class CardItem extends Component {
         }}
       >
         {apiData.map((item) => (
-          <Card key={item?.id} style={{ width: '22rem', margin: '2rem' }}>
+          <Card key={item?.id} style={{ width: '22rem', margin: '0.5rem' }}>
             <Card.Img variant="top" src={item?.image} />
             <Card.Body>
               <Card.Title>Name: {item?.name}</Card.Title>
