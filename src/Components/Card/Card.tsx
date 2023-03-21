@@ -10,37 +10,29 @@ export class CardItem extends Component {
     return (
       <div
         style={{
+          margin: '0 auto',
           display: 'flex',
-          justifyItems: 'stretch',
           flexWrap: 'wrap',
-          alignItems: 'start',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
         {apiData.map((item) => (
-          <Card key={item?.id} style={{ width: '18rem', margin: '2rem' }}>
-            <Card.Img variant="top" height="400px" src={item?.i?.imageUrl} />
+          <Card key={item?.id} style={{ width: '22rem', margin: '2rem' }}>
+            <Card.Img variant="top" src={item?.image} />
             <Card.Body>
-              <Card.Title>Name: {item?.l}</Card.Title>
+              <Card.Title>Name: {item?.name}</Card.Title>
               <Card.Text>
-                {item?.q ? `Type: ` + item?.q : ''}
+                {item?.species ? `Species: ` + item?.species : ''}
                 <br />
-                {item?.s ? `Actors: ` + item?.s : ''}
+                {item?.gender ? `Gender: ` + item?.gender : ''}
                 <br />
-                {item?.rank ? `Rank: ` + item?.rank : ''}
+                {item?.origin?.name ? `From: ` + item?.origin?.name : ''}
                 <br />
-                {item?.y ? `Release: ` + item?.y : ''}
-                <br />
-                {item?.yr ? `Years of production: ` + item?.yr : ''}
+                {item?.location?.name ? `Living: ` + item?.location?.name : ''}
               </Card.Text>
+              <Card.Link href={item?.url}>Check full API</Card.Link>
             </Card.Body>
-            <ListGroup className="list-group-flush">
-              {item?.v ? `Screenshots: ` : ''}
-              {item?.v?.map((r) => (
-                <ListGroup.Item key={r?.id}>
-                  <Card.Img variant="top" src={r?.i?.imageUrl} />
-                </ListGroup.Item>
-              ))}
-            </ListGroup>
           </Card>
         ))}
       </div>
