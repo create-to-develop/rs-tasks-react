@@ -1,0 +1,14 @@
+.active {
+  color: #903939;
+}
+
+.inactive {
+  color: #141443;
+}
+
+.active,
+.inactive {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 30px;
+}
