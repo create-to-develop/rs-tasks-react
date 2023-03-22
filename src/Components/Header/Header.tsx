@@ -23,8 +23,8 @@ export default class Header extends Component<EmptyProps, { pageName: string }> 
   render() {
     return (
       <header>
-        <nav style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <h3>Page: {this.state.pageName}</h3>
+        <nav className="navigation">
+          <div className="showPageName">Page: {this.state.pageName}</div>
           <NavLink
             className={({ isActive }) => (isActive ? 'active' : 'inactive')}
             to="/"
