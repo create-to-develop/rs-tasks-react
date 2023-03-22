@@ -1,0 +1,25 @@
+.active {
+  color: #903939;
+}
+
+.inactive {
+  color: #141443;
+}
+
+.active,
+.inactive {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.showPageName {
+  font-weight: bold;
+  font-size: 25px;
+  color: #535bf2;
+}
