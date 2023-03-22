@@ -1,6 +1,6 @@
-import AboutUs from './Pages/About/AboutUs';
-import ErrorPage from './Pages/Error/ErrorPage';
-import Home from './Pages/Home/Home';
+import AboutUs from '../pages/AboutUs';
+import ErrorPage from '../pages/ErrorPage';
+import Home from '../pages/Home';
 
 export interface Routes {
   id: number;

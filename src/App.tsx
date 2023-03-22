@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './Components/Header/Header';
+import Header from './components/Header/Header';
 import { Route, Routes } from 'react-router-dom';
-import { routes } from './routes';
-import ErrorPage from './Pages/Error/ErrorPage';
+import { routes } from './router/routes';
+import ErrorPage from './pages/ErrorPage';
 
 class App extends Component {
   render() {

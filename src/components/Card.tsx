@@ -2,7 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import apiData from '../api';
+import apiData from '../data/api';
 
 export class CardItem extends Component {
   render() {
