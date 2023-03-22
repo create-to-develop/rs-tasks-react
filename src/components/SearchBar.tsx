@@ -6,9 +6,12 @@ export default class SearchBar extends Component<SearchProps, SearchWordInterfac
     super(props);
     this.state = { searchWord: '' };
   }
+
   componentDidMount(): void {
     const storagedInput = localStorage.getItem('storagedInput');
-    this.setState({ searchWord: storagedInput || '' });
+    if (storagedInput) {
+      this.setState({ searchWord: storagedInput });
+    }
   }
 
   onChangeHandle = (event: ChangeEvent<HTMLInputElement>) => {
