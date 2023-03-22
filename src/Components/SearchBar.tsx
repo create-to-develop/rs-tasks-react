@@ -41,9 +41,18 @@ export default class SearchBar extends Component<SearchProps, SearchWordInterfac
               if (e.key === 'Enter') this.handleSearch();
             }}
           />
-          <button aria-label={'searchBtn'} onClick={this.handleSearch} />
+          <button
+            style={{ background: 'darkblue' }}
+            aria-label={'searchBtn'}
+            onClick={this.handleSearch}
+          >
+            Search
+          </button>
         </label>
-        <button onClick={this.resetSearch}>RESET</button>
+        &nbsp;
+        <button style={{ background: 'darkred' }} onClick={this.resetSearch}>
+          RESET
+        </button>
       </div>
     );
   }
