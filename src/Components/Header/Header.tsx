@@ -7,6 +7,7 @@ export default class Header extends Component {
   render() {
     return (
       <header>
+        <div>Page:</div>
         <nav>
           <NavLink className={({ isActive }) => (isActive ? 'active' : 'inactive')} to="/">
             Home
