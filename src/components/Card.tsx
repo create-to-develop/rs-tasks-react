@@ -15,7 +15,7 @@ export class CardItem extends Component {
         }}
       >
         {apiData.map((item) => (
-          <div>Name: {item?.name}</div>
+          <div key={item?.id}>Name: {item?.name}</div>
           // <Card key={item?.id} style={{ width: '22rem', margin: '0.5rem' }}>
           //   <Card.Img variant="top" src={item?.image} />
           //   <Card.Body>
