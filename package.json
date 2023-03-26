@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "npx eslint src",
+    "lint": "npx eslint src --fix",
     "prepare": "husky install"
   },
   "dependencies": {

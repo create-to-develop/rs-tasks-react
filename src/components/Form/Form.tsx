@@ -18,7 +18,7 @@ interface FormData {
   profilePic: FileList | null;
 }
 
-let x: any = [];
+const x: Array<object> = [];
 
 class Form extends Component<MyFormProps> {
   nameRef: RefObject<HTMLInputElement>;
@@ -71,8 +71,6 @@ class Form extends Component<MyFormProps> {
     };
 
     x.push(formData);
-    console.log(x);
-    //console.info("Form submitted with data:", formData);
   };
 
   render() {
