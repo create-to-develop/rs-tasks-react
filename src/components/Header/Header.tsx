@@ -17,7 +17,7 @@ export default class Header extends Component<EmptyProps, { pageName: string }> 
   changePageTo404() {
     let loc = location.href;
     loc = loc.slice(loc.lastIndexOf('/'));
-    if (loc !== '/' && loc !== '/about') this.setState({ pageName: '404' });
+    if (loc !== '/' && loc !== '/about' && loc !== '/forms') this.setState({ pageName: '404' });
   }
 
   render() {
@@ -39,6 +39,14 @@ export default class Header extends Component<EmptyProps, { pageName: string }> 
             onClick={() => this.setState({ pageName: 'About us' })}
           >
             About us
+          </NavLink>
+          &nbsp;&nbsp;&nbsp;
+          <NavLink
+            className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+            to="/forms"
+            onClick={() => this.setState({ pageName: 'Forms' })}
+          >
+            Forms
           </NavLink>
         </nav>
       </header>

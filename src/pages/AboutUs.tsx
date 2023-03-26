@@ -37,19 +37,7 @@ export default class AboutUs extends Component {
           eligendi esse explicabo id illum, impedit inventore minima possimus voluptate voluptatem.
           A ad alias aliquam amet animi, asperiores assumenda atque beatae consectetur debitis
           deserunt exercitationem impedit incidunt ipsa itaque laboriosam laborum minus provident
-          quis, temporibus tenetur ullam vitae. Asperiores assumenda autem dicta dolor, doloribus ea
-          eius error esse ex fugit impedit ipsam, molestias nemo officiis, provident quas tempora
-          totam vel. A, accusantium ad adipisci architecto at autem commodi culpa cum enim,
-          exercitationem id maiores nisi, non obcaecati odio officia porro quaerat quam quas quasi
-          reiciendis saepe ullam unde ut velit vero voluptatibus. Alias architecto aspernatur autem
-          consequatur cum cupiditate, doloremque eaque eos ex fuga fugiat illum inventore minima
-          pariatur possimus quos rerum sapiente similique sunt temporibus vel vero voluptatibus!
-          Aliquid animi consectetur delectus dolor doloremque est eum excepturi exercitationem
-          illum, impedit itaque magni maiores maxime necessitatibus nostrum obcaecati officia
-          perspiciatis quaerat qui quis quo recusandae repellendus, saepe soluta suscipit, totam
-          unde vel vero voluptates voluptatibus. A dolor id obcaecati quisquam tenetur voluptate!
-          Blanditiis culpa debitis dolor dolorum est et, eum facere harum laborum maxime nostrum
-          repellat sit.
+          quis, temporibus tenetur ullam vitae.
         </p>
       </>
     );

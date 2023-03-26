@@ -1,6 +1,4 @@
-import AboutUs from '../pages/AboutUs';
-import ErrorPage from '../pages/ErrorPage';
-import Home from '../pages/Home';
+import { AboutUs, ErrorPage, Home, Forms } from '../pages/index';
 
 export interface Routes {
   id: number;
@@ -29,5 +27,11 @@ export const routes: Routes[] = [
     path: '*',
     element: ErrorPage,
     linkMessage: '404',
+  },
+  {
+    id: 4,
+    path: '/forms',
+    element: Forms,
+    linkMessage: 'Forms',
   },
 ];
