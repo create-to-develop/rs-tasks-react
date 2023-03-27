@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import UserCards from '../components/UserCards';
+import UserCardsList from '../components/UserCardList/UserCardsList';
 import Form from '../components/Form/Form';
 
 export default class Forms extends Component {
@@ -8,7 +8,7 @@ export default class Forms extends Component {
       <div className="wrapper">
         <h1 style={{ color: '#b1e926' }}>Form</h1>
         <Form />
-        <UserCards />
+        <UserCardsList />
       </div>
     );
   }
