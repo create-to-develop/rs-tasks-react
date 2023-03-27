@@ -162,7 +162,6 @@ class FormAddCard extends Component<ComponentProps, ComponentState> {
   //     this.props.handleSubmittedData(this.state.cards)
   // }
   //
-  // console.log(this.state);
 
   //     this.setState({
   //         name: '',
