@@ -1,5 +1,6 @@
 import React, { ChangeEvent, Component } from 'react';
 import { SearchProps, SearchWordInterface } from 'types/interfaces';
+import './SearchBar.css';
 
 export default class SearchBar extends Component<SearchProps, SearchWordInterface> {
   constructor(props: SearchProps) {
@@ -24,6 +25,7 @@ export default class SearchBar extends Component<SearchProps, SearchWordInterfac
     this.setState({ searchWord: '' });
     this.props.callback('');
   };
+
   componentWillUnmount(): void {
     const { searchWord } = this.state;
     localStorage.setItem('storagedInput', searchWord);
@@ -34,6 +36,7 @@ export default class SearchBar extends Component<SearchProps, SearchWordInterfac
       <div>
         <label htmlFor="search__input">
           <input
+            className="searchInput"
             type="text"
             role="searchbox"
             id="search__input"
@@ -44,17 +47,13 @@ export default class SearchBar extends Component<SearchProps, SearchWordInterfac
               if (e.key === 'Enter') this.handleSearch();
             }}
           />
-          <button
-            style={{ background: 'darkblue' }}
-            aria-label={'searchBtn'}
-            onClick={this.handleSearch}
-          >
+          <button className="searchBtn" aria-label={'searchBtn'} onClick={this.handleSearch}>
             Search
           </button>
         </label>
         &nbsp;
-        <button style={{ background: 'darkred' }} onClick={this.resetSearch}>
-          RESET
+        <button className="resetBtn" onClick={this.resetSearch}>
+          Reset
         </button>
       </div>
     );

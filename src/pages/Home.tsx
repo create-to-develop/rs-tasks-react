@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import { CardItem } from '../components/Card/Card';
-import SearchBar from '../components/SearchBar';
+import SearchBar from '../components/SearchBar/SearchBar';
 import { EmptyProps, SearchWordInterface } from 'types/interfaces';
 
 export default class Home extends Component<EmptyProps, SearchWordInterface> {
