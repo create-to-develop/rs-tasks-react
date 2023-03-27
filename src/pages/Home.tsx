@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-import { CardItem } from '../components/Card';
+import { CardItem } from '../components/Card/Card';
 import SearchBar from '../components/SearchBar';
 import { EmptyProps, SearchWordInterface } from 'types/interfaces';
 
@@ -17,7 +17,7 @@ export default class Home extends Component<EmptyProps, SearchWordInterface> {
   render() {
     return (
       <>
-        <h1>Cards</h1>
+        <h1 style={{ color: '#b1e926' }}>Cards</h1>
         <SearchBar callback={this.handleSearchWord.bind(this)} />
         <CardItem />
       </>

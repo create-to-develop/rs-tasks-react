@@ -5,7 +5,7 @@ export default class ErrorPage extends Component {
   render() {
     return (
       <div style={{ display: 'flex', paddingTop: 'calc(24%)', flexDirection: 'column' }}>
-        <h1>404</h1>
+        <h1 style={{ color: '#b1e926' }}>404</h1>
         <h2>Page not found</h2>
         <Link to="/">Return to the Home page</Link>
       </div>

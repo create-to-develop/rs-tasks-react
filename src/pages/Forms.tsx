@@ -7,8 +7,9 @@ export default class Forms extends Component {
   render() {
     return (
       <div className="wrapper">
+        <h1 style={{ color: '#b1e926' }}>Forms</h1>
         <Form />
-        {x.length > 0 ? <CardItem /> : ''}
+        {/*{x.length > 0 ? <CardItem/> : ''}*/}
       </div>
     );
   }

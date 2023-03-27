@@ -4,8 +4,16 @@ export default class AboutUs extends Component {
   render() {
     return (
       <>
-        <h1>About Us</h1>
-        <p style={{ width: '80%', margin: '0 auto', padding: '20px', textAlign: 'left' }}>
+        <h1 style={{ color: '#b1e926' }}>About Us</h1>
+        <p
+          style={{
+            width: '50%',
+            margin: '0 auto',
+            padding: '20px',
+            textAlign: 'left',
+            fontSize: '17px',
+          }}
+        >
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, illo, porro. Cumque
           dolore fugit iste nisi odio quia repellat velit? Accusantium architecto at atque
           cupiditate, deleniti dolorem et hic id labore maiores, nam necessitatibus nobis nulla odit

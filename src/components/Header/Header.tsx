@@ -22,7 +22,7 @@ export default class Header extends Component<EmptyProps, { pageName: string }> 
 
   render() {
     return (
-      <header>
+      <header className="header">
         <nav className="navigation">
           <div className="showPageName">Page: {this.state.pageName}</div>
           <NavLink
