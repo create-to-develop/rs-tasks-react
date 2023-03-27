@@ -35,18 +35,18 @@ export default class Header extends Component<EmptyProps, { pageName: string }> 
           &nbsp;&nbsp;&nbsp;
           <NavLink
             className={({ isActive }) => (isActive ? 'active' : 'inactive')}
-            to="/about"
-            onClick={() => this.setState({ pageName: 'About us' })}
-          >
-            About us
-          </NavLink>
-          &nbsp;&nbsp;&nbsp;
-          <NavLink
-            className={({ isActive }) => (isActive ? 'active' : 'inactive')}
             to="/forms"
             onClick={() => this.setState({ pageName: 'Forms' })}
           >
             Forms
+          </NavLink>
+          &nbsp;&nbsp;&nbsp;
+          <NavLink
+            className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+            to="/about"
+            onClick={() => this.setState({ pageName: 'About us' })}
+          >
+            About us
           </NavLink>
         </nav>
       </header>

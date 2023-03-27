@@ -33,7 +33,7 @@ export default class SearchBar extends Component<SearchProps, SearchWordInterfac
 
   render(): React.ReactNode {
     return (
-      <div>
+      <div style={{ marginBottom: '24px' }}>
         <label htmlFor="search__input">
           <input
             className="searchInput"
