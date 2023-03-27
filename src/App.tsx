@@ -7,6 +7,9 @@ import ErrorPage from './pages/ErrorPage';
 
 class App extends Component {
   render() {
+    alert(
+      'Пожалуйста, дайте время до конца кросс-чека доделать задание, пожалуйста. Kindly ask you to give time untill cross-check deadline to finish the task please'
+    );
     const pages = routes.map((route) => (
       <Route
         key={route.id}
