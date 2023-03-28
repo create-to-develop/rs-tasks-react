@@ -143,22 +143,22 @@ export default class FormAddCard extends Component<ComponentProps, ComponentStat
           </label>
 
           <div className="form__label">
-            Do you agree for notifications:
+            You want as a gift:
             <label htmlFor="notificationsOn">
-              Yes
+              T-shirt
               <input
                 type="checkbox"
                 id="notificationsOn"
-                name="scales"
+                name="notificationsOn"
                 ref={this.notificationsOn}
               />
             </label>
             <label htmlFor="notificationsOff">
-              No
+              Book
               <input
                 type="checkbox"
                 id="notificationsOff"
-                name="horns"
+                name="notificationsOff"
                 ref={this.notificationsOff}
               />
             </label>

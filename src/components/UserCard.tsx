@@ -11,8 +11,8 @@ export default class UserCard extends React.Component<CardType, object> {
     const { card } = this.props;
 
     const notification: string[] = [];
-    if (card.notificationsOff) notification.push('no');
-    if (card.notificationsOn) notification.push('yes');
+    if (card.notificationsOff) notification.push('Book');
+    if (card.notificationsOn) notification.push('T-shirt');
     const strNotification = notification.join(', ');
 
     return (
