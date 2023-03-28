@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FormProps } from '../../types/interfaces';
-import UserCard from '../UserCard';
+import UserCard from '../UserCard/UserCard';
 import './UserCardList.css';
 
 type Props = {

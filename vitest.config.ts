@@ -9,7 +9,7 @@ export default defineConfig({
     coverage: {
       provider: 'c8',
       all: true,
-      skipFull: false,
+      // skipFull: false,
       reporter: 'text',
     },
   },

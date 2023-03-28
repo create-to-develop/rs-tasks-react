@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormProps } from '../types/interfaces';
+import { FormProps } from '../../types/interfaces';
 import './UserCard.css';
 
 type CardType = {
