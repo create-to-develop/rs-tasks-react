@@ -121,6 +121,19 @@ export default class FormAddCard extends Component<ComponentProps, ComponentStat
           </label>
           {errorBirthday ? <div className="error-message">Please add your birthday</div> : null}
 
+          <fieldset className="form__label">
+            Select your gender:
+            <label htmlFor="man">
+              male
+              <input type="radio" id="man" name="gender" value="man" ref={this.genderM} />
+            </label>
+            <label htmlFor="woman">
+              female
+              <input type="radio" id="woman" name="gender" value="woman" ref={this.genderW} />
+            </label>
+          </fieldset>
+          {errorGender ? <div className="error-message">Please select your gender</div> : null}
+
           <label className="form__label" htmlFor="country">
             choose a country:
             <select id="country" name="country" ref={this.country}>
