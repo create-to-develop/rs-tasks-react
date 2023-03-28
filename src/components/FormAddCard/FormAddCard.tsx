@@ -113,7 +113,7 @@ export default class FormAddCard extends Component<ComponentProps, ComponentStat
             birthday &nbsp;
             <input
               id="birthday"
-              type="text"
+              type="date"
               name="birthday"
               ref={this.birthday}
               placeholder="your birthday"
