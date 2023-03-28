@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import UserCardsList from '../components/UserCardList/UserCardsList';
 import { FormProps } from '../types/interfaces';
-import { FormAddCard } from '../components/FormAddCard/FormAddCard';
+import FormAddCard from '../components/FormAddCard/FormAddCard';
 
 type Props = object;
 

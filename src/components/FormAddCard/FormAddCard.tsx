@@ -8,102 +8,68 @@ type ComponentProps = {
 
 type ComponentState = {
   errorName: boolean;
+  errorBirthday: boolean;
+  errorGender: boolean;
+  errorNotifications: boolean;
+  errorPicture: boolean;
   message: boolean;
 };
 
-class FormAddCard extends Component<ComponentProps, ComponentState> {
+export default class FormAddCard extends Component<ComponentProps, ComponentState> {
   private formLink: React.RefObject<HTMLFormElement>;
   private name: RefObject<HTMLInputElement>;
-  // private surnameRef: RefObject<HTMLInputElement>;
-  // private zipCodeRef: RefObject<HTMLInputElement>;
-  // private birthdayRef: RefObject<HTMLInputElement>;
-  // private deliveryDateRef: RefObject<HTMLInputElement>;
-  // private countryRef: RefObject<HTMLSelectElement>;
-  // private stateRef: RefObject<HTMLSelectElement>;
-  // private consentRef: RefObject<HTMLInputElement>;
-  // private genderRef: RefObject<HTMLInputElement>;
-  // private notificationsRef: RefObject<HTMLInputElement>;
-  // private pictureRef: RefObject<HTMLInputElement>;
-  // private pictureInputRef: RefObject<HTMLInputElement>;
-  // private genderSwitcherRef: RefObject<HTMLInputElement>;
-
+  private birthday: RefObject<HTMLInputElement>;
+  private country: RefObject<HTMLSelectElement>;
+  private genderM: RefObject<HTMLInputElement>;
+  private genderW: RefObject<HTMLInputElement>;
+  private notificationsOn: RefObject<HTMLInputElement>;
+  private notificationsOff: RefObject<HTMLInputElement>;
+  private picture: RefObject<HTMLInputElement>;
   constructor(props: ComponentProps) {
     super(props);
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.formLink = React.createRef();
     this.name = React.createRef();
+    this.birthday = React.createRef();
+    this.country = React.createRef();
+    this.genderM = React.createRef();
+    this.genderW = React.createRef();
+    this.notificationsOn = React.createRef();
+    this.notificationsOff = React.createRef();
+    this.picture = React.createRef();
 
     this.state = {
       errorName: false,
+      errorBirthday: false,
+      errorGender: false,
+      errorNotifications: false,
+      errorPicture: false,
       message: false,
     };
   }
-
-  // this.state = {
-  //     errorName: false,
-  // errorBithday: false,
-  // errorFeature: false,
-  // errorGender: false,
-  // errorFile: false,
-  // message: false,
-  // };
-  // this.state = {
-  //     name: '',
-  // surname: '',
-  // zipCode: '',
-  // birthday: '',
-  // deliveryDate: '',
-  // country: '',
-  // state: '',
-  // consent: '',
-  // gender: '',
-  // notifications: '',
-  // picture: '',
-  // errors: {
-  //     name: '',
-  //     surname: '',
-  //     zipCode: '',
-  //     birthday: '',
-  //     deliveryDate: '',
-  //     country: '',
-  //     state: '',
-  //     consent: '',
-  //     gender: '',
-  //     notifications: '',
-  //     picture: '',
-  // },
-  // submitted: false,
-  // };
-
-  // this.surnameRef = React.createRef();
-  // this.zipCodeRef = React.createRef();
-  // this.birthdayRef = React.createRef();
-  // this.deliveryDateRef = React.createRef();
-  // this.countryRef = React.createRef();
-  // this.stateRef = React.createRef();
-  // this.consentRef = React.createRef();
-  // this.genderRef = React.createRef();
-  // this.notificationsRef = React.createRef();
-  // this.pictureRef = React.createRef();
-  // this.pictureInputRef = React.createRef();
-  // this.genderSwitcherRef = React.createRef();
-
-  // }
 
   handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const { onSubmit } = this.props;
 
     this.validateInputs(() => {
-      const { errorName } = this.state;
+      const { errorName, errorBirthday, errorGender, errorNotifications, errorPicture } =
+        this.state;
 
-      if (!errorName) {
+      if (!errorName && !errorBirthday && !errorGender && !errorNotifications && !errorPicture) {
         this.setState({ message: true });
         setTimeout(() => {
           this.setState({ message: false });
+          const gender = this.genderM.current!.checked ? 'man' : 'woman';
           onSubmit({
             name: this.name.current!.value,
+            birthday: this.birthday.current!.value,
+            country: this.country.current!.value,
+            gender,
+            notificationsOn: this.notificationsOn.current!.checked,
+            notificationsOff: this.notificationsOff.current!.checked,
+            picture: URL.createObjectURL(this.picture.current!.files![0]),
           });
           this.formLink.current?.reset();
         }, 500);
@@ -112,115 +78,92 @@ class FormAddCard extends Component<ComponentProps, ComponentState> {
   };
 
   validateInputs(callback: () => void) {
+    const gender = this.genderM.current!.checked || this.genderW.current!.checked;
+    const notifications =
+      this.notificationsOn.current!.checked || this.notificationsOff.current!.checked;
+
     this.setState(
       {
         errorName: !this.name.current!.value,
+        errorBirthday: !this.birthday.current!.value,
+        errorGender: !gender,
+        errorNotifications: !notifications,
+        errorPicture: !this.picture.current!.files![0],
       },
       callback
     );
   }
 
-  // const { name,
-  //     // surname,  zipCode,
-  //     // birthday,
-  //     // deliveryDate,
-  //     // country,
-  //     // state,
-  //     // consent,
-  //     // gender,
-  //     // notifications,
-  //     // picture,
-  // } = this.state;
-
-  // if (!name
-  //
-  //     //|| !surname /*|| !switcher || !date || !file*/
-  // ) {
-  //     alert('Please fill out all fields.');
-  //     return;
-  // }
-  // if (name && !/^[A-Z][a-z]*$/.test(name)) {
-  //     alert('First name must start with an uppercase letter.');
-  //     if (this.nameInput) {
-  //         this.nameInput.current?.focus();
-  //     }
-  //     return;
-  // }
-  // // if (!/^[A-Z][a-z]*$/.test(surname)) {
-  // //     alert('Last name must start with an uppercased letter.');
-  // //     if (surname && !/^[A-Z][a-z]*$/.test(surname)) {
-  // //         alert('First name must start with an uppercased letter.');
-  // //         if (this.surnameInput) {
-  // //             this.surnameInput.current?.focus();
-  // //         }
-  // //         return;
-  // //     }}
-  //
-  // this.setState({...this.state, cards: [{name: this.state.name, surname: this.state.surname, date: this.state.date, country: this.state.selection, gender: this.state.switcher}]})
-  //
-  // if (this.props.handleSubmittedData) {
-  //     this.props.handleSubmittedData(this.state.cards)
-  // }
-  //
-
-  //     this.setState({
-  //         name: '',
-  //         surname: '',
-  //         zipCode: '',
-  //         birthday: '',
-  //         deliveryDate: '',
-  //         country: '',
-  //         state: '',
-  //         consent: '',
-  //         gender: '',
-  //         notifications: '',
-  //         picture: '',
-  //         // errors: {
-  //         //     name: '',
-  //         //     surname: '',
-  //         //     zipCode: '',
-  //         //     birthday: '',
-  //         //     deliveryDate: '',
-  //         //     country: '',
-  //         //     state: '',
-  //         //     consent: '',
-  //         //     gender: '',
-  //         //     notifications: '',
-  //         //     picture: '',
-  //         // },
-  //         // submitted: false,
-  //     })
-  // }
-
-  //     const formData = {
-  //         name: this.nameRef.current?.value,
-  //         surname: this.surnameRef.current?.value,
-  //         zipCode: this.zipCodeRef.current?.value,
-  //         birthday: this.birthdayRef.current?.value,
-  //         deliveryDate: this.deliveryDateRef.current?.value,
-  //         country: this.countryRef.current?.value,
-  //         state: this.stateRef.current?.value,
-  //         consent: this.consentRef.current?.checked,
-  //         gender: this.genderRef.current?.value,
-  //         notifications: this.notificationsRef.current?.checked,
-  //         picture: this.pictureRef.current?.files?.[0] || null,
-  //     };
-  //
-  //     x.push(formData);
-  // };
-
   render() {
-    const { errorName, message } = this.state;
+    const { errorName, errorBirthday, errorGender, errorNotifications, errorPicture, message } =
+      this.state;
 
     return (
       <>
         {message ? <div className="message">card added</div> : null}
+
         <form className="form" ref={this.formLink} onSubmit={this.handleSubmit}>
           <label className="form__label" htmlFor="name">
             name &nbsp;
             <input id="name" type="text" name="name" ref={this.name} placeholder="your name" />
           </label>
-          {errorName ? <div className="error-message">the field should not be empty</div> : null}
+          {errorName ? <div className="error-message">Please add your name</div> : null}
+
+          <label className="form__label" htmlFor="birthday">
+            birthday &nbsp;
+            <input
+              id="birthday"
+              type="text"
+              name="birthday"
+              ref={this.birthday}
+              placeholder="your birthday"
+            />
+          </label>
+          {errorBirthday ? <div className="error-message">Please add your birthday</div> : null}
+
+          <label className="form__label" htmlFor="country">
+            choose a country:
+            <select id="country" name="country" ref={this.country}>
+              <option value="usa">USA</option>
+              <option value="canada">Canada</option>
+            </select>
+          </label>
+
+          <div className="form__label">
+            Do you agree for notifications:
+            <label htmlFor="notificationsOn">
+              Yes
+              <input
+                type="checkbox"
+                id="notificationsOn"
+                name="scales"
+                ref={this.notificationsOn}
+              />
+            </label>
+            <label htmlFor="notificationsOff">
+              No
+              <input
+                type="checkbox"
+                id="notificationsOff"
+                name="horns"
+                ref={this.notificationsOff}
+              />
+            </label>
+          </div>
+          {errorNotifications ? (
+            <div className="error-message">Please choose one option</div>
+          ) : null}
+
+          <input
+            type="file"
+            name="picture"
+            id="picture"
+            accept="image/png, image/jpeg"
+            ref={this.picture}
+          />
+
+          {errorPicture ? <div className="error-message">Please choose picture</div> : null}
+
           <button type="submit" className="form__btn">
             CREATE
           </button>
@@ -229,82 +172,3 @@ class FormAddCard extends Component<ComponentProps, ComponentState> {
     );
   }
 }
-
-// <>
-//     <div className="form-container">
-//         <form className="form-content" onSubmit={this.handleSubmit}>
-//             <label>
-//                 Name:
-//                 <input type="text" ref={this.nameRef}/>
-//             </label>
-//             <br/>
-//             <label>
-//                 Surname:
-//                 <input type="text" ref={this.surnameRef}/>
-//             </label>
-//             <br/>
-//             <label>
-//                 Zip Code:
-//                 <input type="text" ref={this.zipCodeRef}/>
-//             </label>
-//             <br/>
-//             <label>
-//                 Birthday:
-//                 <input type="date" ref={this.birthdayRef}/>
-//             </label>
-//             <br/>
-//             <label>
-//                 Delivery Date:
-//                 <input type="date" ref={this.deliveryDateRef}/>
-//             </label>
-//             <br/>
-//             <label>
-//                 Country:
-//                 <select ref={this.countryRef}>
-//                     <option value="">-- Please select a country --</option>
-//                     <option value="usa">USA</option>
-//                     <option value="canada">Canada</option>
-//                     <option value="uk">UK</option>
-//                 </select>
-//             </label>
-//             <br/>
-//             <label>
-//                 Select state:
-//                 <select ref={this.stateRef}>
-//                     <option value="">-- Please select --</option>
-//                     <option value="New York">New York</option>
-//                     <option value="California">California</option>
-//                     <option value="Texas">Texas</option>
-//                 </select>
-//             </label>
-//             <br/>
-//             <label>
-//                 Consent to personal data:
-//                 <input type="checkbox" ref={this.consentRef}/>
-//             </label>
-//             <br/>
-//             <label>
-//                 Gender:
-//                 <label>
-//                     <input type="radio" value="male" ref={this.genderSwitcherRef}/>
-//                     Male
-//                 </label>
-//                 <label>
-//                     <input type="radio" value="female" ref={this.genderSwitcherRef}/>
-//                     Female
-//                 </label>
-//             </label>
-//             <br/>
-//             <label>
-//                 Profile picture:
-//                 <input type="file" accept="image/*" ref={this.pictureInputRef}/>
-//             </label>
-//             <br/>
-//             <button className="submit-form-btn" type="submit">Submit</button>
-//         </form>
-//     </div>
-// </>
-// )
-// }
-
-export { FormAddCard };

@@ -12,30 +12,12 @@ export interface SearchProps {
 
 export interface FormProps {
   name: string;
-  // surname: string,
-  // zipCode: string,
-  // birthday: string,
-  // deliveryDate: string,
-  // country: string,
-  // state: string,
-  // consent: string,
-  // gender: string,
-  // notifications: string,
-  // picture: string | undefined,
-  // errors: {
-  //   name: string,
-  //   surname: string,
-  //   zipCode: string,
-  //   birthday: string,
-  //   deliveryDate: string,
-  //   country: string,
-  //   state: string,
-  //   consent: string,
-  //   gender: string,
-  //   notifications: string,
-  //   picture: string | undefined,
-  // },
-  // submitted: boolean,
+  birthday: string;
+  country: string;
+  gender: string;
+  notificationsOn: boolean;
+  notificationsOff: boolean;
+  picture: string | undefined;
 }
 
 export type CardType = {
@@ -44,9 +26,11 @@ export type CardType = {
 
 export type ErrorState = {
   errorName: boolean;
-  // errorBithday: boolean;
-  // errorFeature: boolean;
-  // errorGender: boolean;
-  // errorFile: boolean;
+  errorBirthday: boolean;
+  errorGender: boolean;
+  errorNotifications: boolean;
+  errorPicture: boolean;
+  // errorPictureInput: boolean,
+  // errorGenderSwitcher: boolean,
   message: boolean;
 };
