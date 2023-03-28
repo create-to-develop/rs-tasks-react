@@ -1,0 +1,37 @@
+.pageWithCardsWrapper {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardWrapper {
+  width: 280px;
+  height: 500px;
+  background: darkslateblue;
+  margin: 10px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  flex-direction: column;
+  border: 5px solid mediumslateblue;
+  border-radius: 20px;
+}
+
+.picStyle {
+  width: 246px;
+  height: 240px;
+}
+
+.linkStyle {
+  color: #bff33d;
+}
+
+.cardText {
+  text-align: left;
+  line-height: 32px;
+  width: 100%;
+  padding-left: 32px;
+}

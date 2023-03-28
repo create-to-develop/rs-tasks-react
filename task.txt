@@ -1,0 +1,6 @@
+text input - name
+date input - birthday
+dropdown/select - country
+switcher (radio) - gender
+checkbox - notifications yes / no
+file upload (image) - picture
